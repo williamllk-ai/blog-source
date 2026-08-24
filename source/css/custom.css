@@ -1,344 +1,57 @@
-/* ========================================
-   William Lu Blog - Custom UI
+﻿/* ========================================
+   William Lu Blog Custom CSS
+   Clean Version
    ======================================== */
 
-/* Normal cursor */
+
+/* =========================
+   Custom Cursor
+   ========================= */
+
 html,
 body {
   cursor: url("/assets/cursor-default.svg") 4 3, auto;
 }
 
-/* Clickable elements */
+
 a,
 button,
 label,
 summary,
-[role="button"],
-input[type="button"],
-input[type="submit"],
-input[type="checkbox"],
-input[type="radio"],
-.nav-item,
-.card-hover {
+[role="button"] {
   cursor: url("/assets/cursor-pointer.svg") 10 10, pointer;
 }
 
-/* Keep native text cursor for editing / selection */
-input[type="text"],
-input[type="email"],
-input[type="search"],
-textarea,
-[contenteditable="true"] {
-  cursor: text;
-}
 
-/* ========================================
-   MathJax size override v2
-   ======================================== */
+/* =========================
+   MathJax
+   Only control formulas
+   Do NOT touch article text
+   ========================= */
+
 
 mjx-container {
-  font-size: 1.22em !important;
+  font-size: 1.15em;
 }
+
 
 mjx-container[display="true"] {
-  font-size: 1.55em !important;
-  margin: 1.0em 0 !important;
+  font-size: 1.35em;
+  margin: 0.8em 0;
   overflow-x: auto;
-  overflow-y: hidden;
-  max-width: 100%;
-}
-
-/* ========================================
-   Article reading size
-   ======================================== */
-
-:root {
-  --article-font-size: 22px;
-}
-
-/* 正文默认 18px 左右 */
-.md-text {
-  font-size: var(--article-font-size);
-  line-height: 1.85;
-}
-
-/* 行内公式稍大于正文 */
-.md-text mjx-container:not([display="true"]) {
-  font-size: 1.08em !important;
-}
-
-/* 独立公式明显放大，并随正文字号一起变化 */
-.md-text mjx-container[display="true"] {
-  font-size: 1.50em !important;
-  margin: 1.10em 0 !important;
-  overflow-x: auto;
-  overflow-y: hidden;
-  max-width: 100%;
 }
 
 
-/* ========================================
-   Reader size control
-   ======================================== */
+/* =========================
+   Reader button position
+   ========================= */
+
 
 .reader-size-control {
-  position: fixed;
-  right: 28px;
-  bottom: 72px;
-  z-index: 1000;
-
-  display: flex;
-  align-items: center;
-  gap: 3px;
-
-  padding: 5px;
-
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-
-  border: 1px solid rgba(100, 116, 139, 0.16);
-  border-radius: 12px;
-
-  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.09);
-}
-
-.reader-size-control button {
-  width: 36px;
-  height: 31px;
-
-  border: none;
-  border-radius: 8px;
-
-  background: transparent;
-  color: #64748b;
-
-  font-size: 13px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition:
-    background 0.18s ease,
-    color 0.18s ease,
-    transform 0.18s ease;
-}
-
-.reader-size-control button:hover {
-  background: rgba(59, 130, 246, 0.10);
-  color: #2563eb;
-}
-
-.reader-size-control button.active {
-  background: rgba(59, 130, 246, 0.15);
-  color: #2563eb;
-}
-
-.reader-size-control button:active {
-  transform: scale(0.94);
-}
-
-@media (max-width: 768px) {
-  .reader-size-control {
-    right: 14px;
-    bottom: 64px;
-  }
-}
-
-/* ========================================
-   Reading UI refinement v3
-   ======================================== */
-
-/* 字号控制器贴近浏览器右下角 */
-.reader-size-control {
-  right: 12px !important;
+  right: 90px !important;
   bottom: 18px !important;
 }
 
-/* Display Math 本体不要制造过大的上下留白 */
-.md-text mjx-container[display="true"] {
-  margin-top: 0.20em !important;
-  margin-bottom: 0.20em !important;
-}
-
-/*
- * MathJax 会给公式所在父元素加入 has-jax。
- * 对纯 display-math 段落进一步压缩段落间距。
- */
-.md-text p.has-jax:has(mjx-container[display="true"]) {
-  margin-top: 0.35em !important;
-  margin-bottom: 0.35em !important;
-}
-
-/* 手机端略微留一点安全距离 */
-@media (max-width: 768px) {
-  .reader-size-control {
-    right: 8px !important;
-    bottom: 12px !important;
-  }
-}
-
-/* ========================================
-   Inline Math readability v4
-   ======================================== */
-
-/*
- * 行内公式视觉尺寸需要略大于普通正文。
- * 特别改善 fraction / subscript / superscript 的可读性。
- */
-.md-text mjx-container:not([display="true"]) {
-  font-size: 1.28em !important;
-  margin-left: 0.06em !important;
-  margin-right: 0.06em !important;
-}
-
-/*
- * 含有行内公式的普通段落，为数学结构提供更多垂直空间。
- */
-.md-text p:has(mjx-container:not([display="true"])) {
-  line-height: 2.00 !important;
-}
-
-/*
- * 列表中的公式同样处理。
- * 你截图里的高斯消元步骤主要就是这种情况。
- */
-.md-text li:has(mjx-container:not([display="true"])) {
-  line-height: 2.00 !important;
-}
-
-/* ========================================
-   Inline Math SVG scaling v5
-   ======================================== */
-
-:root {
-  --inline-math-zoom: 1.40;
-}
-
-/*
- * markdown-it-mathjax3 输出的是预渲染 SVG。
- * font-size 对这种 SVG 缩放不可靠，因此直接缩放整个
- * mjx-container，并让浏览器重新参与排版。
- */
-.md-text mjx-container[jax="SVG"]:not([display="true"]) {
-  font-size: 1em !important;
-  zoom: var(--inline-math-zoom);
-  margin-left: 0.07em !important;
-  margin-right: 0.07em !important;
-}
-
-/*
- * 撤销上一版为了补偿小公式而设置的过大行距。
- * zoom 本身会给放大后的公式分配真实布局空间。
- */
-.md-text p:has(mjx-container[jax="SVG"]:not([display="true"])),
-.md-text li:has(mjx-container[jax="SVG"]:not([display="true"])) {
-  line-height: 1.85 !important;
-}
-
-/* ========================================
-   Inline Math SVG final sizing v6
-   ======================================== */
-
-/*
- * markdown-it-mathjax3 generates SVG whose dimensions use ex units.
- * Scale the actual SVG rather than only the outer mjx-container.
- */
-.md-text mjx-container[jax="SVG"]:not([display="true"]) {
-  zoom: 1 !important;
-  display: inline-block !important;
-  margin-left: 0.08em !important;
-  margin-right: 0.08em !important;
-  line-height: 1 !important;
-}
-
-/* 真正放大 MathJax SVG */
-.md-text mjx-container[jax="SVG"]:not([display="true"]) > svg {
-  zoom: var(--inline-math-zoom, 1.38) !important;
-}
-
-/*
- * 不再人为撑大整段行距。
- * 放大的 SVG 自己参与排版。
- */
-.md-text p:has(mjx-container[jax="SVG"]:not([display="true"])),
-.md-text li:has(mjx-container[jax="SVG"]:not([display="true"])) {
-  line-height: 1.85 !important;
-}
-
-/* ========================================
-   Reader control - 5 level refinement
-   ======================================== */
-
-.reader-size-control {
-  gap: 2px !important;
-}
-
-.reader-size-control button {
-  width: auto !important;
-  min-width: 34px !important;
-  padding-left: 7px !important;
-  padding-right: 7px !important;
-}
-
-/* ========================================
-   Reader control button hard reset v2
-   ======================================== */
-
-.reader-size-control button {
-  -webkit-appearance: none !important;
-  appearance: none !important;
-
-  position: relative !important;
-
-  border: 0 !important;
-  outline: 0 !important;
-
-  background-image: none !important;
-
-  text-shadow: none !important;
-  box-shadow: none !important;
-
-  -webkit-tap-highlight-color: transparent !important;
-}
-
-/* 禁止任何全局样式给字号按钮生成装饰点/伪元素 */
-.reader-size-control button::before,
-.reader-size-control button::after {
-  content: none !important;
-  display: none !important;
-}
-
-/* focus 不额外生成浏览器视觉标记 */
-.reader-size-control button:focus,
-.reader-size-control button:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-/* 我们自己的选中状态 */
-.reader-size-control button.active {
-  background: rgba(59, 130, 246, 0.14) !important;
-  color: #2563eb !important;
-}
-
-/* hover */
-.reader-size-control button:hover {
-  background: rgba(59, 130, 246, 0.10) !important;
-  color: #2563eb !important;
-}
-
-/* active 优先于 hover */
-.reader-size-control button.active:hover {
-  background: rgba(59, 130, 246, 0.17) !important;
-  color: #2563eb !important;
-}
-
-/* Reader size floating position */
-.reader-size-control {
-  right: 42px !important;
-  bottom: 72px !important;
-}
 
 .reader-size-control button {
   width: 36px;
@@ -346,68 +59,8 @@ mjx-container[display="true"] {
 }
 
 
-/* Adjust reader size widget position */
-.reader-size-control {
-  right: 90px !important;
-  bottom: 45px !important;
-}
-
-
-/* Final reader widget position */
-.reader-size-control {
-  right: 90px !important;
-  bottom: 18px !important;
-}
-
-
-
-
-/* ========================================
-   Reader Font Scaling v2
-   Stellar post-content
-   ======================================== */
-
-
-.post-content p,
-.post-content li,
-.post-content blockquote,
-.post-content table {
-    font-size: calc(1rem * var(--article-scale, 1));
-}
-
-
-.post-content p,
-.post-content li {
-    line-height: 1.85;
-}
-
-
-/* MathJax */
-.post-content mjx-container {
-    font-size: calc(1.15em * var(--article-scale, 1));
-}
-
-
-
-/* ========================================
-   Reader font scale final fix
-   Stellar markdown content
-======================================== */
-
-article.md-text.content p,
-article.md-text.content li,
-article.md-text.content blockquote,
-article.md-text.content table {
-    font-size: var(--article-font-size) !important;
-}
-
-
-article.md-text.content h1,
-article.md-text.content h2,
-article.md-text.content h3,
-article.md-text.content h4,
-article.md-text.content h5,
-article.md-text.content h6 {
-    font-size: revert;
-}
+/* =========================
+   No article font override here
+   Let Stellar handle it
+   ========================= */
 
