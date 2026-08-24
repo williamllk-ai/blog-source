@@ -53,6 +53,8 @@ $$
 
 ## 3. Overall Pipeline
 
+![pipeline](vggt-pipeline.png)
+
 ```text
 Input Images
     │
