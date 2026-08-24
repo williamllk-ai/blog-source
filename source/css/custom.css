@@ -359,3 +359,55 @@ mjx-container[display="true"] {
   bottom: 18px !important;
 }
 
+
+
+
+/* ========================================
+   Reader Font Scaling v2
+   Stellar post-content
+   ======================================== */
+
+
+.post-content p,
+.post-content li,
+.post-content blockquote,
+.post-content table {
+    font-size: calc(1rem * var(--article-scale, 1));
+}
+
+
+.post-content p,
+.post-content li {
+    line-height: 1.85;
+}
+
+
+/* MathJax */
+.post-content mjx-container {
+    font-size: calc(1.15em * var(--article-scale, 1));
+}
+
+
+
+/* ========================================
+   Reader font scale final fix
+   Stellar markdown content
+======================================== */
+
+article.md-text.content p,
+article.md-text.content li,
+article.md-text.content blockquote,
+article.md-text.content table {
+    font-size: var(--article-font-size) !important;
+}
+
+
+article.md-text.content h1,
+article.md-text.content h2,
+article.md-text.content h3,
+article.md-text.content h4,
+article.md-text.content h5,
+article.md-text.content h6 {
+    font-size: revert;
+}
+

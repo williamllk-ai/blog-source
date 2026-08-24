@@ -53,7 +53,7 @@ $$
 
 ## 3. Overall Pipeline
 
-![pipeline](vggt-pipeline.png)
+![pipeline](paper-notes-vggt/vggt-pipeline.png)
 
 ```text
 Input Images
@@ -104,7 +104,7 @@ $$
 t_i^I\in\mathbb R^{P\times C}
 $$
 
-对于 \(518\times518\) 图像、patch size \(14\)：
+对于 $518\times518$ 图像、patch size $14$：
 
 $$
 P=37\times37=1369
