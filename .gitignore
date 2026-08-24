@@ -1,0 +1,39 @@
+﻿.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Hexo generated files
+public/
+.deploy_git/
+.deploy*/
+
+# Cache
+db.json
+*.log
+.cache/
+.cache-loader/
+
+# Temporary files
+*.zip
+*.bak
+*.tmp
+*.old
+
+# Backup configs
+_config.*.yml
+!_config.yml
+
+# Recovery / audit files
+rebuild_*/
+*_audit*
+RECOVERY*
+*_report.txt
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Desktop.ini

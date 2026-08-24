@@ -1,0 +1,36 @@
+# Stellar site-level widget overrides
+
+recent:
+  limit: 8
+
+contact:
+  layout: linklist
+  title: 联系
+  view: grid
+  columns: 2
+  show_title: false
+  items:
+    - title: GitHub
+      url: https://github.com/williamllk-ai
+      icon: default:github
+
+    - title: Email
+      url: mailto:williamllk@sjtu.edu.cn
+      icon: share:email
+
+tagcloud:
+  title: 标签云
+  min_font: 12
+  max_font: 20
+  amount: 24
+  orderby: name
+  order: 1
+  color: false
+  show_count: false
+
+latest_comment:
+  layout: timeline
+  title: 最新评论
+  api: https://hexo-waline-sable.vercel.app
+  type: waline
+  limit: 5
